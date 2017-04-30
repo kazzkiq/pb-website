@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', main);
 
 function main () {
-  console.log(`my name is jhon`);
+  const yearFooterElement = document.querySelector('[data-bind="year"]');
+  yearFooterElement.innerHTML = new Date().getUTCFullYear();
 }
 
 window.canvasDots = function() {
@@ -69,10 +70,17 @@ window.canvasDots = function() {
                     j_dot = dots.array[j];
 
                     if((i_dot.x - j_dot.x) < dots.distance && (i_dot.y - j_dot.y) < dots.distance && (i_dot.x - j_dot.x) > - dots.distance && (i_dot.y - j_dot.y) > - dots.distance){
+                        ctx.beginPath();
+                        ctx.moveTo(i_dot.x, i_dot.y);
+                        ctx.lineTo(j_dot.x, j_dot.y);
+                        ctx.lineWidth = 0.1;
+                        ctx.stroke();
+                        ctx.closePath();
                         if((i_dot.x - mousePosition.x) < dots.d_radius && (i_dot.y - mousePosition.y) < dots.d_radius && (i_dot.x - mousePosition.x) > - dots.d_radius && (i_dot.y - mousePosition.y) > - dots.d_radius){
                             ctx.beginPath();
                             ctx.moveTo(i_dot.x, i_dot.y);
                             ctx.lineTo(j_dot.x, j_dot.y);
+                            ctx.lineWidth = 0.5;
                             ctx.stroke();
                             ctx.closePath();
                         }
@@ -171,13 +179,13 @@ window.canvasDotsWhite = function() {
                     j_dot = dots.array[j];
 
                     if((i_dot.x - j_dot.x) < dots.distance && (i_dot.y - j_dot.y) < dots.distance && (i_dot.x - j_dot.x) > - dots.distance && (i_dot.y - j_dot.y) > - dots.distance){
-                        if((i_dot.x - mousePosition.x) < dots.d_radius && (i_dot.y - mousePosition.y) < dots.d_radius && (i_dot.x - mousePosition.x) > - dots.d_radius && (i_dot.y - mousePosition.y) > - dots.d_radius){
+                        //if((i_dot.x - mousePosition.x) < dots.d_radius && (i_dot.y - mousePosition.y) < dots.d_radius && (i_dot.x - mousePosition.x) > - dots.d_radius && (i_dot.y - mousePosition.y) > - dots.d_radius){
                             ctx.beginPath();
                             ctx.moveTo(i_dot.x, i_dot.y);
                             ctx.lineTo(j_dot.x, j_dot.y);
                             ctx.stroke();
                             ctx.closePath();
-                        }
+                        //}
                     }
                 }
             }
