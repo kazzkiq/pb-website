@@ -11,10 +11,12 @@
 
   <link rel="stylesheet" href="app.css">
   <script src="app.js"></script>
-  <script>window.onload = () => { canvasDots() };</script>
+  <script>window.onload = () => { if(!mobileAndTabletcheck()){canvasDots()} };</script>
 </head>
 <body>
-  <canvas class='connecting-dots'></canvas>
+  <div class="canvas-wrapper">
+    <canvas class="connecting-dots"></canvas>
+  </div>
   <main>
     <div class="topbar">
       <div class="container">
@@ -35,7 +37,7 @@
       <h2 class="subtitle">Peerbox is created to address security concerns involved with secure<br>minting and running peercoin nodes.</h2>
       <a href="https://talk.peercoin.net/t/how-to-peerbox-support-thread/3827" class="call-btn">Get Started</a>
 
-      <h3 class="steps-title">Understaing Peerbox in three simple steps:</h3>
+      <h3 class="steps-title">Understanding Peerbox in three simple steps:</h3>
 
       <div class="steps">
         <div class="step">
@@ -50,7 +52,7 @@
           <div class="img">
             <img src="img/icon-step-2.png" width="81">
           </div>
-          <div class="details">Follow our super simple tutorial to setup Peerbox properly.</div>
+          <div class="details">Follow our super <a href="https://talk.peercoin.net/t/how-to-peerbox-support-thread/3827">simple tutorial</a> to setup Peerbox properly.</div>
         </div>
         <div class="step">
           <div class="number">3</div>
@@ -124,7 +126,7 @@
     <div class="footer">
       <div class="container">
         <div class="copyright">
-          <span data-bind="year">2017</span> Peerbox
+          <!--<span data-bind="year">2017</span> Peerbox-->
         </div>
         <div class="footer-links">
           <a href="https://github.com/peerchemist/Peerbox">Github</a>

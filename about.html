@@ -12,7 +12,7 @@
 
   <link rel="stylesheet" href="app.css">
   <script src="app.js"></script>
-  <script>window.onload = () => { canvasDotsWhite() };</script>
+  <script>window.onload = () => { if(!mobileAndTabletcheck()){canvasDotsWhite()} };</script>
 </head>
 <body>
   <main>
@@ -55,7 +55,7 @@
     <div class="footer">
       <div class="container">
         <div class="copyright">
-          <span data-bind="year">2017</span> Peerbox
+          <!--<span data-bind="year">2017</span> Peerbox-->
         </div>
         <div class="footer-links">
           <a href="https://github.com/peerchemist/Peerbox">Github</a>
