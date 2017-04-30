@@ -111,8 +111,8 @@ window.canvasDotsWhite = function() {
         ctx = canvas.getContext('2d'),
         colorDot = '#fff',
         color = '#fff';
-    canvas.width = window.innerWidth*2;
-    canvas.height = window.innerHeight*2;
+    canvas.width = document.querySelector('.connecting-dots-white').offsetWidth*2;
+    canvas.height = document.querySelector('.connecting-dots-white').offsetHeight*2;
     ctx.fillStyle = colorDot;
     ctx.lineWidth = .1;
     ctx.strokeStyle = color;
@@ -123,7 +123,7 @@ window.canvasDotsWhite = function() {
     };
 
     var dots = {
-        nb: 600,
+        nb: 100,
         distance: 60,
         d_radius: 100,
         array: []
@@ -197,13 +197,9 @@ window.canvasDotsWhite = function() {
         dot.animate();
     }
 
-    window.onmousemove = function(parameter) {
-        mousePosition.x = parameter.pageX*2;
-        mousePosition.y = parameter.pageY*2;
-    }
 
-    mousePosition.x = window.innerWidth / 2;
-    mousePosition.y = window.innerHeight / 2;
+    mousePosition.x = -500;
+    mousePosition.y = -500;
 
     setInterval(createDots, 1000/30);
 };
