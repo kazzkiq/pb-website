@@ -28,7 +28,7 @@ window.canvasDots = function() {
     };
 
     var dots = {
-        nb: 600,
+        nb: 200,
         distance: 60,
         d_radius: 100,
         array: []
@@ -41,7 +41,7 @@ window.canvasDots = function() {
         this.vx = -.5 + Math.random();
         this.vy = -.5 + Math.random();
 
-        this.radius = Math.random()*2.5;
+        this.radius = Math.random()*3;
     }
 
     Dot.prototype = {
