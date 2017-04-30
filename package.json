@@ -1,10 +1,10 @@
 {
-  "name": "brunch-app",
-  "description": "Brunch.io application",
+  "name": "pb-website",
+  "description": "Peerbox website",
   "private": true,
-  "author": "Brunch",
-  "version": "0.0.1",
-  "repository": "",
+  "author": "Claudio Holanda",
+  "version": "0.1.0",
+  "repository": "https://github.com/kazzkiq/pb-website.git",
   "scripts": {
     "start": "brunch watch --server -n",
     "build": "brunch build --production"
@@ -13,6 +13,7 @@
   "devDependencies": {
     "auto-reload-brunch": "^2",
     "brunch": "^2",
+    "buble-brunch": "^2.0.0",
     "clean-css-brunch": "^2",
     "sass-brunch": "^2.10.4",
     "uglify-js-brunch": "^2"

@@ -1,0 +1,17 @@
+/*
+ * Colors
+ */
+
+$blue: #6bc1b8;
+$green: #a3d588;
+$dark: #2d2d2d;
+$grey: rgba($dark, 0.8);
+$silver: rgba($dark, 0.5);
+
+$gradient-blue-green: linear-gradient(90deg, $blue, $green);
+
+/*
+ * Fonts
+ */
+
+ $app-font-family: 'Source Sans Pro', sans-serif;
