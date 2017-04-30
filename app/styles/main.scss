@@ -115,6 +115,12 @@ a {
   color: #fff;
   font-weight: bold;
   text-shadow: 0 1px 1px rgba($dark, 0.1);
+  box-shadow: 0 0 0 2px rgba(#000, 0) inset;
+  transition: box-shadow 0.2s linear;
+
+  &:hover {
+    box-shadow: 0 0 0 2px rgba(#000, 0.2) inset;
+  }
 
   &.small {
     min-width: 250px;
@@ -364,8 +370,8 @@ a {
   margin: 5rem 0;
 
   p, ul, ol {
-    font-size: 1.6rem;
-    line-height: 3rem;
+    font-size: 1.7rem;
+    line-height: 2.6rem;
   }
 
   h2 {
