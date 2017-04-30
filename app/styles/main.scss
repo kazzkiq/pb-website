@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700&subset=latin-ext,vietnamese');
 
+@import "viewports";
 @import "variables";
 
 html, body {
@@ -13,6 +14,11 @@ body {
   color: $dark;
   background: #fff;
   font-size: 1.5rem;
+}
+
+main {
+  position: relative;
+  z-index: 2;
 }
 
 *, *:before, *:after {
@@ -31,6 +37,7 @@ a {
 .container {
   max-width: 1180px;
   margin: 0 auto;
+  padding: 0 2rem;
 
   &.container-small {
     max-width: 800px;
@@ -45,14 +52,33 @@ a {
   align-items: center;
   border-bottom: 1px solid rgba($silver, 0.1);
 
+  @include viewports(up-to small) {
+    flex-direction: column;
+    height: auto;
+    border-bottom: none;
+  }
+
   .menu {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
 
+    @include viewports(up-to small) {
+      width: 100vw;
+      margin: 1.5rem -2rem 0;
+      background: $gradient-blue-green;
+      padding: 2rem 0;
+      flex-wrap: nowrap;
+      overflow: auto;
+    }
+
     li {
       margin: 0 2rem;
+
+      @include viewports(up-to small) {
+        margin: 0 1.5rem;
+      }
 
       &:last-child {
         margin-right: 0;
@@ -67,16 +93,33 @@ a {
         box-shadow: 0 2px 0 rgba($blue, 0);
         transition: box-shadow 0.15s linear;
 
+        @include viewports(up-to small) {
+          white-space: nowrap;
+          color: #fff;
+        }
+
         &:hover {
           box-shadow: 0 2px 0 $blue;
+
+          @include viewports(up-to small) {
+            box-shadow: 0 2px 0 #fff;
+          }
         }
 
         &.green {
           color: $green;
+
+          @include viewports(up-to small) {
+            color: #fff;
+          }
         }
 
         &.active {
           box-shadow: 0 2px 0 $blue;
+
+          @include viewports(up-to small) {
+            box-shadow: 0 2px 0 #fff;
+          }
         }
       }
     }
@@ -92,11 +135,21 @@ a {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   text-fill-color: transparent;
+
+  @include viewports(up-to small) {
+    margin-top: 3rem;
+  }
 }
 
 .subtitle {
   font-size: 2.3rem;
   font-weight: normal;
+
+  br {
+    @include viewports(up-to medium) {
+      display: none;
+    }
+  }
 }
 
 .steps-title {
@@ -134,6 +187,11 @@ a {
   margin: 5rem auto;
   position: relative;
 
+  @include viewports(up-to small) {
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+
   &:before {
     content: '';
     display: block;
@@ -145,6 +203,10 @@ a {
     margin: 13px 15% 0;
     height: 3px;
     background: $gradient-blue-green;
+
+    @include viewports(up-to small) {
+      display: none;
+    }
   }
 
   .step {
@@ -155,6 +217,10 @@ a {
     flex-direction: column;
     align-items: center;
     padding: 0 2rem;
+
+    @include viewports(up-to small) {
+      margin-bottom: 5rem;
+    }
 
     .number {
       width: 30px;
@@ -177,6 +243,11 @@ a {
     .details {
       font-size: 1.5rem;
       font-weight: bold;
+
+      @include viewports(up-to small) {
+        font-size: 1.7rem;
+        font-weight: normal;
+      }
     }
   }
 }
@@ -193,6 +264,12 @@ a {
   align-items: center;
   justify-content: space-between;
   overflow: hidden;
+
+  @include viewports(up-to small) {
+    flex-direction: column;
+    background-size: auto 100%;
+    margin-top: 1rem;
+  }
 
   &:before {
     content: '';
@@ -227,6 +304,15 @@ a {
       right: 0;
       top: 50%;
       transform: translateY(-50%);
+
+      @include viewports(up-to small) {
+        width: 50%;
+        height: 1px;
+        top: auto;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
     }
 
     .checkmark {
@@ -268,12 +354,21 @@ a {
   justify-content: space-between;
   align-items: center;
 
+  @include viewports(up-to small) {
+    flex-direction: column;
+  }
+
   p {
     max-width: 600px;
     text-align: left;
     font-size: 1.8rem;
     flex: 1;
     padding-right: 5rem;
+
+    @include viewports(up-to small) {
+      text-align: center;
+      padding-right: 0;
+   }
   }
 
   .call-btn {
@@ -288,9 +383,20 @@ a {
   align-items: center;
   margin: 8rem auto;
 
+  @include viewports(up-to small) {
+    margin: 4rem auto 2rem;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
   .social {
     display: flex;
     transition: transform 0.3s ease-in-out;
+
+    @include viewports(up-to small) {
+      width: 150px;
+      margin-bottom: 3rem;
+    }
 
     &:hover {
       transform: translate3d(0, -5px, 0);
@@ -322,7 +428,7 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 86px;
+  min-height: 86px;
   background: $gradient-blue-green;
   color: #fff;
   font-size: 1.6rem;
@@ -333,7 +439,14 @@ a {
     justify-content: space-between;
     align-items: center;
 
+    @include viewports(up-to small) {
+      justify-content: center;
+    }
+
     .footer-links {
+      @include viewports(up-to small) {
+        display: none;
+      }
       a {
         margin: 0 1.5rem;
         padding: 0.2rem 0;
@@ -359,6 +472,12 @@ a {
   z-index: 2;
   margin-top: -1px;
 
+  @include viewports(up-to small) {
+    margin-top: -2rem;
+    border-top: 1px solid rgba(#000, 0.1);
+    box-shadow: 0 2px 5px rgba(#000, 0.05) inset;
+  }
+
   h1 {
     color: #fff;
     font-weight: normal;
@@ -382,6 +501,14 @@ a {
 
   ul {
     font-weight: bold;
+
+    li {
+      margin-bottom: 2rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 
   blockquote {
@@ -391,5 +518,18 @@ a {
     border-left: 5px solid $blue;
     background: linear-gradient(90deg, rgba($blue, 0.2), rgba($green, 0.2));
     color: $grey;
+  }
+}
+
+.connecting-dots {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+
+  @include viewports(up-to small) {
+    display: none;
   }
 }
