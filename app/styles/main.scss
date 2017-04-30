@@ -325,7 +325,15 @@ a {
 
     .footer-links {
       a {
-        padding: 1rem 1.5rem;
+        margin: 0 1.5rem;
+        padding: 0.2rem 0;
+        text-shadow: 0 1px 1px rgba($dark, 0.1);
+        box-shadow: 0 2px 0 rgba(#fff, 0);
+        transition: box-shadow 0.15s linear;
+
+        &:hover {
+          box-shadow: 0 2px 0 #fff;
+        }
       }
     }
   }
